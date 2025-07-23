@@ -1,0 +1,7 @@
+ListView {
+  border-width:1px;
+  border-color:gray;
+}
+TextField, EnumField, Button {
+  margin-bottom:4px;
+}

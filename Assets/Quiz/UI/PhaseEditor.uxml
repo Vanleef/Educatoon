@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+  <Style src="PhaseEditor.uss"/>
+  <ui:VisualElement style="flex-direction:row;flex-grow:1;">
+    <ui:VisualElement style="width:200px;padding:5px;">
+      <ui:Button name="addPhase" text="➕ Nova Fase"/>
+      <ui:ListView name="phaseList" style="flex-grow:1;margin-top:5px;"/>
+    </ui:VisualElement>
+    <ui:ScrollView style="flex-grow:1;padding:5px;">
+      <ui:TextField name="phaseName" label="Nome da Fase"/>
+      <ui:EnumField name="quizType" label="Tipo do Quiz"/>
+      <ui:Button name="addQuestion" text="➕ Nova Pergunta"/>
+      <ui:ListView name="questionList" style="height:300px;margin-top:5px;"/>
+      <ui:Button name="saveBtn" text="💾 Salvar JSON"/>
+    </ui:ScrollView>
+  </ui:VisualElement>
+</ui:UXML>

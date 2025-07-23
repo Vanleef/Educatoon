@@ -1,0 +1,38 @@
+[
+  {
+    "nome": "mix",
+    "perguntas": [
+      {
+        "texto": "Qual é a cor do céu?",
+        "tipoMidia": 0,
+        "caminhoMidia": "",
+        "alternativas": ["Azul", "Verde", "Vermelho", "Amarelo"],
+        "indiceCorreto": 0
+      }
+    ]
+  },
+  {
+    "nome": "animal",
+    "perguntas": [
+      {
+        "texto": "Qual animal late?",
+        "tipoMidia": 0,
+        "caminhoMidia": "",
+        "alternativas": ["Gato", "Cachorro", "Pássaro", "Peixe"],
+        "indiceCorreto": 1
+      }
+    ]
+  },
+  {
+    "nome": "bird",
+    "perguntas": [
+      {
+        "texto": "Qual destes é uma ave?",
+        "tipoMidia": 0,
+        "caminhoMidia": "",
+        "alternativas": ["Cavalo", "Galinha", "Cachorro", "Gato"],
+        "indiceCorreto": 1
+      }
+    ]
+  }
+]
