@@ -1,86 +1,119 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class QuizManager : MonoBehaviour
 {
 #pragma warning disable 649
-    // Reference to the QuizGameUI script
     [SerializeField] private QuizGameUI quizGameUI;
-    // Reference to the scriptableobject file
-    [SerializeField] private List<QuizDataScriptable> quizDataList;
-    [SerializeField] private float timeInSeconds;
+    [SerializeField] private float defaultTimeInSeconds = 30f; // Tempo padrão global
 #pragma warning restore 649
 
     private string currentCategory = "";
     private int correctAnswerCount = 0;
-    // Questions data
     private List<Question> questions;
-    // Current question data
     private Question selectedQuestion = new Question();
     private int gameScore;
     private int lifesRemaining;
     private float currentTime;
-    private QuizDataScriptable dataScriptable;
-
+    private float questionStartTime; // Tempo inicial da pergunta atual
     private GameStatus gameStatus = GameStatus.NEXT;
+
+    // Armazena a fase atualmente carregada (para jogar uma única fase)
+    private QuizData loadedQuizData;
+    public QuizData QuizData { get { return loadedQuizData; } }
+
+    // Nova propriedade para armazenar todas as fases disponíveis
+    public List<QuizData> AllQuizDatas { get; private set; } = new List<QuizData>();
 
     public GameStatus GameStatus { get { return gameStatus; } }
 
-    public List<QuizDataScriptable> QuizData { get => quizDataList; }
-
-    public void StartGame(int categoryIndex, string category)
+    void Awake()
     {
-        if (quizGameUI == null)
-        {
-            Debug.LogError("QuizManager: quizGameUI reference is not set.");
-            return;
-        }
-        if (quizDataList == null || categoryIndex < 0 || categoryIndex >= quizDataList.Count)
-        {
-            Debug.LogError("QuizManager: Invalid category index or quizDataList is not set.");
-            return;
-        }
+        LoadAllQuizDatas();
+    }
 
-        currentCategory = category;
+    // Carrega todos os arquivos JSON da pasta "Quizzes"
+    private void LoadAllQuizDatas()
+    {
+        AllQuizDatas.Clear();
+        // Carrega todos os TextAsset (JSON) da pasta "Quizzes" dentro de Resources
+        TextAsset[] quizFiles = Resources.LoadAll<TextAsset>("Quizzes");
+        if (quizFiles.Length == 0)
+        {
+            Debug.LogWarning("Nenhum arquivo JSON encontrado na pasta Resources/Quizzes");
+            return;
+        }
+        foreach (TextAsset quizFile in quizFiles)
+        {
+            QuizData quiz = JsonUtility.FromJson<QuizData>(quizFile.text);
+            if (quiz != null)
+            {
+                // Aplica o tempo padrão da categoria para perguntas que não têm tempo definido
+                foreach (var question in quiz.questions)
+                {
+                    if (question.questionTime <= 0)
+                    {
+                        question.questionTime = quiz.defaultQuestionTime > 0 ? quiz.defaultQuestionTime : defaultTimeInSeconds;
+                    }
+                }
+                AllQuizDatas.Add(quiz);
+            }
+            else
+            {
+                Debug.LogWarning("Falha ao carregar o quiz: " + quizFile.name);
+            }
+        }
+    }
+
+    // Exemplo: para iniciar um jogo a partir de um índice de fase (categoria) escolhido
+    public void StartGame(int index, string category)
+    {
+        if (index < 0 || index >= AllQuizDatas.Count)
+        {
+            Debug.LogError("Índice de fase inválido.");
+            return;
+        }
+        QuizData data = AllQuizDatas[index];
+        InitializeQuiz(data);
+    }
+
+    void InitializeQuiz(QuizData data)
+    {
+        loadedQuizData = data;
+        currentCategory = data.categoryName;
         correctAnswerCount = 0;
         gameScore = 0;
         lifesRemaining = 3;
-        currentTime = timeInSeconds;
-        // Set the questions data
-        questions = new List<Question>();
-        dataScriptable = quizDataList[categoryIndex];
-        questions.AddRange(dataScriptable.questions);
+        questions = new List<Question>(data.questions);
 
         if (questions.Count == 0)
         {
-            Debug.LogWarning("QuizManager: No questions found for this category.");
+            Debug.LogWarning("QuizManager: Nenhuma pergunta encontrada para esta fase.");
             return;
         }
 
-        // Select the question
         SelectQuestion();
         gameStatus = GameStatus.PLAYING;
     }
 
-    /// <summary>
-    /// Method used to randomly select the question from questions data
-    /// </summary>
     private void SelectQuestion()
     {
         if (questions == null || questions.Count == 0)
         {
-            Debug.LogWarning("QuizManager: No questions available to select.");
+            Debug.LogWarning("QuizManager: Nenhuma pergunta disponível para seleção.");
             return;
         }
-        // Get the random number
         int val = UnityEngine.Random.Range(0, questions.Count);
-        // Set the selectedQuestion
         selectedQuestion = questions[val];
-        // Send the question to quizGameUI
-        quizGameUI.SetQuestion(selectedQuestion);
 
+        // Define o tempo da pergunta atual
+        currentTime = selectedQuestion.questionTime;
+        questionStartTime = currentTime;
+
+        quizGameUI.SetQuestion(selectedQuestion);
         questions.RemoveAt(val);
     }
 
@@ -95,29 +128,33 @@ public class QuizManager : MonoBehaviour
 
     void SetTime(float value)
     {
-        TimeSpan time = TimeSpan.FromSeconds(currentTime); // Set the time value
-        quizGameUI.TimerText.text = time.ToString("mm':'ss"); // Convert time to Time format
-
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        quizGameUI.TimerText.text = time.ToString("mm':'ss");
         if (currentTime <= 0)
         {
-            // Game Over
-            GameEnd();
+            // Tempo esgotado - trata como resposta incorreta
+            lifesRemaining--;
+            quizGameUI.ReduceLife(lifesRemaining);
+            if (lifesRemaining == 0)
+            {
+                GameEnd();
+            }
+            else if (questions.Count > 0)
+            {
+                Invoke("SelectQuestion", 0.4f);
+            }
+            else
+            {
+                GameEnd();
+            }
         }
     }
 
-    /// <summary>
-    /// Method called to check if the answer is correct or not
-    /// </summary>
-    /// <param name="selectedOption">answer string</param>
-    /// <returns></returns>
     public bool Answer(string selectedOption)
     {
-        // Set default to false
         bool correct = false;
-        // If selected answer is similar to the correctAns
-        if (selectedQuestion.correctAns == selectedOption)
+        if (selectedQuestion.options[selectedQuestion.correctAnswerIndex] == selectedOption)
         {
-            // Yes, Ans is correct
             correctAnswerCount++;
             correct = true;
             gameScore += 50;
@@ -125,11 +162,8 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            // No, Ans is wrong
-            // Reduce Life
             lifesRemaining--;
             quizGameUI.ReduceLife(lifesRemaining);
-
             if (lifesRemaining == 0)
             {
                 GameEnd();
@@ -139,16 +173,10 @@ public class QuizManager : MonoBehaviour
         if (gameStatus == GameStatus.PLAYING)
         {
             if (questions.Count > 0)
-            {
-                // Call SelectQuestion method again after 0.4s
                 Invoke("SelectQuestion", 0.4f);
-            }
             else
-            {
                 GameEnd();
-            }
         }
-        // Return the value of correct bool
         return correct;
     }
 
@@ -156,40 +184,31 @@ public class QuizManager : MonoBehaviour
     {
         gameStatus = GameStatus.NEXT;
         quizGameUI.GameOverPanel.SetActive(true);
-
-        // If you want to save only the highest score then compare the current score with saved score and if more save the new score
-        // eg:- if correctAnswerCount > PlayerPrefs.GetInt(currentCategory) then call below line
-
-        // Save the score
-        PlayerPrefs.SetInt(currentCategory, correctAnswerCount); // Save the score for this category
+        PlayerPrefs.SetInt(currentCategory, correctAnswerCount);
     }
-}
 
-// Data structure for storing the questions data
-[System.Serializable]
-public class Question
-{
-    public string questionInfo;         // Question text
-    public QuestionType questionType;   // Type
-    public Sprite questionImage;        // Image for Image Type
-    public AudioClip audioClip;         // Audio for audio type
-    public UnityEngine.Video.VideoClip videoClip;   // Video for video type
-    public List<string> options;        // Options to select
-    public string correctAns;           // Correct option
-}
+    // NOVO: Método público para recarregar os quizzes
+    public void ReloadAllQuizzes()
+    {
+        LoadAllQuizDatas();
+    }
 
-[System.Serializable]
-public enum QuestionType
-{
-    TEXT,
-    IMAGE,
-    AUDIO,
-    VIDEO
+    // NOVO: Método público para obter a lista de quizzes
+    public void RefreshQuizList()
+    {
+        LoadAllQuizDatas();
+
+        // Notifica o QuizGameUI para atualizar os botões
+        if (quizGameUI != null)
+        {
+            quizGameUI.RefreshCategoryButtons();
+        }
+    }
 }
 
 public enum GameStatus
 {
-    NEXT,       // Next Question
-    PLAYING,    // Playing the game
-    GAMEOVER    // Game Over
+    NEXT,
+    PLAYING,
+    GAMEOVER
 }

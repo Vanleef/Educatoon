@@ -1,0 +1,110 @@
+<!-- QuizEditor.uxml -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" 
+         xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         engine="UnityEngine.UIElements" 
+         editor="UnityEditor.UIElements" 
+         noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" 
+         editor-extension-mode="False">
+    
+    <Style src="project://database/Assets/Quiz/UI/QuizEditor.uss" />
+    
+    <ui:VisualElement name="RootContainer" class="root-container">
+        <!-- Header -->
+        <ui:VisualElement name="HeaderPanel" class="header-panel">
+            <ui:Label text="Editor de Fases" class="header-title" />
+            <ui:Button text="Voltar" name="BackButton" class="back-button" />
+        </ui:VisualElement>
+        
+        <!-- Main Content -->
+        <ui:VisualElement name="MainContent" class="main-content">
+            <!-- Left Panel - Quiz Info -->
+            <ui:VisualElement name="LeftPanel" class="left-panel">
+                <ui:Label text="Informações da Fase" class="section-title" />
+                
+                <ui:VisualElement name="QuizInfoContainer" class="quiz-info-container">
+                    <ui:TextField label="Nome da Categoria:" name="CategoryName" class="input-field" />
+                    <ui:FloatField label="Tempo Padrão (s):" name="DefaultTime" class="input-field" />
+                    
+                    <!-- AJUSTADO: Removido botão carregar, apenas criação, salvamento e remoção -->
+                    <ui:VisualElement class="quiz-controls">
+                        <ui:Button name="NewQuizButton" text="Nova Fase" class="control-button" />
+                        <ui:Button name="SaveQuizButton" text="Salvar Fase" class="control-button primary-button" />
+                        <ui:Button name="RemoveQuizButton" text="Remover Fase" class="control-button danger-button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                
+                <!-- Load Quiz Section -->
+                <ui:VisualElement name="LoadQuizContainer" class="load-quiz-container">
+                    <ui:Label text="Carregar Fase Existente" class="section-title" />
+                    <ui:DropdownField label="Fase:" name="ExistingQuizzesDropdown" class="input-field" />
+                    <!-- AJUSTADO: Botão carregar apenas aqui -->
+                    <ui:Button text="Carregar Fase" name="LoadQuizButton" class="control-button primary-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            
+            <!-- Center Panel - Questions List -->
+            <ui:VisualElement name="CenterPanel" class="center-panel">
+                <ui:VisualElement name="QuestionsHeader" class="questions-header">
+                    <ui:Label text="Perguntas" class="section-title" />
+                    <ui:Button text="+ Adicionar" name="AddQuestionButton" class="add-question-button" />
+                </ui:VisualElement>
+                
+                <ui:ScrollView name="QuestionsScrollView" class="questions-scroll" mode="Vertical" 
+                               horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto">
+                    <ui:ListView name="QuestionsList" class="questions-list" 
+                                 show-border="false" show-foldout-header="false" 
+                                 show-add-remove-footer="false" reorderable="false" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+            
+            <!-- Right Panel - Question Editor -->
+            <ui:VisualElement name="RightPanel" class="right-panel">
+                <ui:VisualElement name="EditorHeader" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 10px;">
+                    <ui:Label text="Editor de Pergunta" class="section-title" />
+                </ui:VisualElement>
+                
+                <ui:ScrollView name="QuestionEditorScrollView" class="question-editor-scroll">
+                    <ui:VisualElement name="QuestionEditorContainer" class="question-editor-container">
+                        <!-- Question Basic Info -->
+                        <ui:VisualElement name="QuestionBasicInfo" class="question-section">
+                            <ui:TextField label="Texto da Pergunta:" name="QuestionText" multiline="true" class="question-text-field" />
+                            <ui:DropdownField label="Tipo de Pergunta:" name="QuestionType" class="input-field" />
+                            <ui:FloatField label="Tempo da Pergunta (s):" name="QuestionTime" class="input-field" />
+                        </ui:VisualElement>
+                        
+                        <!-- Media Section -->
+                        <ui:VisualElement name="MediaSection" class="question-section media-section">
+                            <ui:Label text="Mídia" class="subsection-title" />
+                            <ui:VisualElement name="MediaControls" class="media-controls">
+                                <ui:Button text="Importar Mídia" name="ImportMediaButton" class="media-button" />
+                                <ui:Label text="Nenhuma mídia selecionada" name="MediaPathLabel" class="media-path-label" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        
+                        <!-- Options Section -->
+                        <ui:VisualElement name="OptionsSection" class="question-section">
+                            <ui:VisualElement name="OptionsHeader" class="options-header">
+                                <ui:Label text="Opções de Resposta" class="subsection-title" />
+                                <ui:Button text="+ Adicionar Opção" name="AddOptionButton" class="add-option-button" />
+                            </ui:VisualElement>
+                            
+                            <ui:VisualElement name="OptionsContainer" class="options-container">
+                                <!-- Options will be added dynamically -->
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        
+                        <!-- Question Actions -->
+                        <ui:VisualElement name="QuestionActions" class="question-actions">
+                            <ui:Button text="Remover Pergunta" name="RemoveQuestionButton" class="remove-question-button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        
+        <!-- Footer -->
+        <ui:VisualElement name="FooterPanel" class="footer-panel">
+            <ui:Label text="Editor de Fases - Educatoon" class="footer-text" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

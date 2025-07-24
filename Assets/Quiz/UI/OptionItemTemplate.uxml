@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement class="option-item">
+        <ui:TextField label="Texto da Opção:" name="OptionTextField" class="option-text-field" />
+        <ui:VisualElement class="option-controls">
+            <ui:Toggle name="CorrectToggle" label="Resposta Correta" class="correct-toggle" />
+            <ui:Button name="RemoveOptionButton" text="Remover" class="remove-option-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

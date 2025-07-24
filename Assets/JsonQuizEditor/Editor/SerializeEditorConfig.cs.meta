@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a7410d3eff23841d4b266265782e0177
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Editor/SerializeEditorConfig.cs
+  uploadId: 377829

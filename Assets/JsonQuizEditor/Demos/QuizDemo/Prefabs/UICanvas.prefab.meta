@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a657aa89dea138402bd43e4a4fd138d7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Demos/QuizDemo/Prefabs/UICanvas.prefab
+  uploadId: 377829

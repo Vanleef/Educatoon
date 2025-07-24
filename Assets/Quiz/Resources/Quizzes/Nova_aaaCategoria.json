@@ -1,0 +1,21 @@
+{
+  "categoryName": "Nova aaaCategoria",
+  "questions": [
+    {
+      "questionInfo": "Teste?",
+      "questionType": 1,
+      "imagePath": "ImportedMedia/cartasCostas",
+      "audioPath": "",
+      "videoPath": "",
+      "options": [
+        "Casa",
+        "Bahia",
+        "Calção"
+      ],
+      "correctAnswerIndex": 0,
+      "mediaPath": "ImportedMedia/cartasCostas",
+      "questionTime": 25.0
+    }
+  ],
+  "defaultQuestionTime": 32.0
+}

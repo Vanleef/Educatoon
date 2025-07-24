@@ -49,7 +49,18 @@ public class PerguntasPanelUI : MonoBehaviour
             int idx = i;
             var btnGO = Instantiate(perguntaBtnPrefab, perguntasListContainer);
             var txt = btnGO.GetComponentInChildren<TMP_Text>();
-            txt.text = string.IsNullOrEmpty(perguntas[i].texto) ? $"Pergunta {i + 1}" : perguntas[i].texto;
+
+            // CORREÇÃO: Mostrar "Pergunta 1", "Pergunta 2", etc.
+            string displayText = $"Pergunta {i + 1}";
+            if (!string.IsNullOrEmpty(perguntas[i].texto) && perguntas[i].texto.Trim() != "")
+            {
+                string preview = perguntas[i].texto.Length > 20 ?
+                    perguntas[i].texto.Substring(0, 20) + "..." :
+                    perguntas[i].texto;
+                displayText += $" - {preview}";
+            }
+
+            txt.text = displayText;
             btnGO.GetComponent<Button>().onClick.AddListener(() => SelecionarPergunta(idx));
         }
     }
@@ -62,6 +73,55 @@ public class PerguntasPanelUI : MonoBehaviour
 
     void SalvarPerguntas()
     {
+        // NOVO: Validar antes de salvar
+        List<string> errors = new List<string>();
+
+        for (int i = 0; i < perguntas.Count; i++)
+        {
+            var pergunta = perguntas[i];
+
+            // Validar texto da pergunta
+            if (string.IsNullOrEmpty(pergunta.texto) || pergunta.texto.Trim() == "")
+            {
+                errors.Add($"• Pergunta {i + 1}: Texto não pode estar vazio");
+            }
+
+            // Validar opções de resposta
+            if (pergunta.alternativas.Count < 2)
+            {
+                errors.Add($"• Pergunta {i + 1}: Deve ter pelo menos 2 alternativas");
+            }
+            else
+            {
+                for (int j = 0; j < pergunta.alternativas.Count; j++)
+                {
+                    if (string.IsNullOrEmpty(pergunta.alternativas[j]) || pergunta.alternativas[j].Trim() == "")
+                    {
+                        errors.Add($"• Pergunta {i + 1}, Alternativa {j + 1}: Não pode estar vazia");
+                    }
+                }
+            }
+
+            // Validar índice da resposta correta
+            if (pergunta.indiceCorreto < 0 || pergunta.indiceCorreto >= pergunta.alternativas.Count)
+            {
+                errors.Add($"• Pergunta {i + 1}: Resposta correta inválida");
+            }
+
+            // Validar mídia se necessário
+            if (pergunta.tipoMidia != TipoMidia.Texto && string.IsNullOrEmpty(pergunta.caminhoMidia))
+            {
+                errors.Add($"• Pergunta {i + 1}: Mídia é obrigatória para o tipo {pergunta.tipoMidia}");
+            }
+        }
+
+        if (errors.Count > 0)
+        {
+            string errorMessage = "Não é possível salvar. Corrija os seguintes erros:\n\n" + string.Join("\n", errors);
+            Debug.LogWarning(errorMessage);
+            return;
+        }
+
         // Atualiza lista lateral
         AtualizarListaPerguntas();
 

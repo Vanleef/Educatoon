@@ -1,0 +1,667 @@
+/* QuizEditor.uss - Versão melhorada */
+
+.root-container {
+    flex-grow: 1;
+    background-color: rgb(45, 45, 45);
+    min-height: 100%;
+}
+
+.header-panel {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(35, 35, 35);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(65, 65, 65);
+}
+
+.header-title {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+.back-button {
+    background-color: rgb(100, 100, 100);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.main-content {
+    flex-direction: row;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+.left-panel {
+    width: 420px;
+    background-color: rgb(50, 50, 50);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right-width: 2px;
+    border-right-color: rgb(65, 65, 65);
+}
+
+.center-panel {
+    width: 320px; /* AUMENTADO: Mais largura para a lista */
+    background-color: rgb(55, 55, 55);
+    border-right-width: 2px;
+    border-right-color: rgb(65, 65, 65);
+    overflow: hidden; /* ADICIONADO: Evitar overflow */
+}
+
+.right-panel {
+    flex-grow: 1;
+    background-color: rgb(50, 50, 50);
+    min-width: 350px;
+    padding-top: 20px; /* ADICIONADO: Padding para o título */
+}
+
+.section-title {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    margin-bottom: 15px;
+    margin-left: 20px; /* ADICIONADO: Margem esquerda */
+    margin-right: 20px; /* ADICIONADO: Margem direita */
+    margin-top: 0; /* ADICIONADO: Remover margem superior */
+}
+
+.subsection-title {
+    font-size: 14px;
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    -unity-font-style: bold;
+    margin-bottom: 10px;
+}
+
+.quiz-info-container {
+    background-color: rgb(60, 60, 60);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.load-quiz-container {
+    background-color: rgb(60, 60, 60);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.input-field Label {
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    min-width: 140px;
+    font-size: 13px;
+    -unity-font-style: normal;
+}
+
+.input-field TextInput {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+.input-field FloatInput {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+/* CORRIGIDO: Dropdown field */
+.input-field .unity-base-popup-field__input {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+.quiz-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.control-button {
+    flex-grow: 1;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+}
+
+.primary-button {
+    background-color: rgb(0, 120, 215);
+}
+
+.danger-button {
+    background-color: rgb(200, 50, 50);
+}
+
+.questions-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(60, 60, 60);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(65, 65, 65);
+}
+
+.add-question-button {
+    background-color: rgb(0, 150, 0);
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 13px;
+}
+
+/* Adicione/substitua estas seções para garantir melhor visibilidade: */
+
+.questions-scroll {
+    flex-grow: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+.questions-list {
+    flex-grow: 1;
+    background-color: transparent;
+}
+
+/* MELHORADO: Estilos para os itens da lista de perguntas */
+.question-item-container {
+    background-color: rgb(75, 75, 75);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-width: 4px;
+    border-left-color: rgb(120, 120, 120);
+    min-height: 70px;
+    cursor: link;
+    border-width: 1px;
+    border-color: rgb(90, 90, 90);
+}
+
+.question-item-container:hover {
+    background-color: rgb(85, 85, 85);
+    border-left-color: rgb(140, 140, 140);
+    border-color: rgb(110, 110, 110);
+}
+
+.question-item-container.selected {
+    border-left-color: rgb(0, 140, 255);
+    background-color: rgba(0, 140, 255, 0.25);
+    border-color: rgb(0, 120, 215);
+}
+
+/* Layout horizontal para preview à esquerda e tipo à direita */
+.question-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    min-height: 50px;
+}
+
+.question-preview {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+    margin-right: 15px;
+    text-overflow: ellipsis;
+}
+
+.question-type-badge {
+    background-color: rgb(100, 100, 100);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 11px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 50px;
+    -unity-text-align: middle-center;
+}
+
+.question-type-badge.image {
+    background-color: rgb(80, 150, 80);
+    color: rgb(255, 255, 255);
+}
+
+.question-type-badge.audio {
+    background-color: rgb(150, 80, 150);
+    color: rgb(255, 255, 255);
+}
+
+.question-type-badge.video {
+    background-color: rgb(80, 80, 150);
+    color: rgb(255, 255, 255);
+}
+
+/* Garantir que elementos do ListView tenham background transparente */
+.questions-list > #unity-content-viewport {
+    background-color: transparent;
+}
+
+.questions-list > #unity-content-viewport > #unity-content-container {
+    background-color: transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.questions-list .unity-scroll-view__content-viewport {
+    background-color: transparent;
+}
+
+.questions-list .unity-scroll-view__content-container {
+    background-color: transparent;
+}
+
+.footer-panel {
+    background-color: rgb(35, 35, 35);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-width: 1px;
+    border-top-color: rgb(65, 65, 65);
+    align-items: center;
+}
+
+.footer-text {
+    color: rgb(150, 150, 150);
+    font-size: 12px;
+}
+
+/* Estado desabilitado */
+.disabled {
+    opacity: 0.5;
+}
+
+/* NOVO: Estilos para dialogs de confirmação */
+.confirmation-dialog {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-box {
+    background-color: rgb(50, 50, 50);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    max-width: 500px;
+    min-width: 350px;
+    border-width: 2px;
+    border-color: rgb(80, 80, 80);
+}
+
+.dialog-title {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.dialog-message {
+    color: rgb(220, 220, 220);
+    white-space: normal;
+    margin-bottom: 25px;
+    font-size: 14px;
+    -unity-text-align: middle-center;
+}
+
+.dialog-buttons {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dialog-button {
+    flex-grow: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+.dialog-button.confirm {
+    background-color: rgb(0, 120, 215);
+    color: rgb(255, 255, 255);
+}
+
+.dialog-button.cancel {
+    background-color: rgb(100, 100, 100);
+    color: rgb(255, 255, 255);
+}
+
+.dialog-button.danger {
+    background-color: rgb(200, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+/* NOVO: Estilos específicos para dialogs de sucesso e erro */
+.success-dialog {
+    border-width: 2px;
+    border-color: rgb(0, 150, 50);
+}
+
+.error-dialog {
+    border-width: 2px;
+    border-color: rgb(200, 50, 50);
+}
+
+.success-title {
+    color: rgb(150, 255, 150);
+}
+
+.error-title {
+    color: rgb(255, 150, 150);
+}
+
+.question-editor-scroll {
+    flex-grow: 1;
+    margin-top: 0; /* ADICIONADO: Remover margem superior */
+}
+
+.question-editor-container {
+    padding-top: 10px; /* DIMINUÍDO: Menos padding superior */
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.question-section {
+    background-color: rgb(60, 60, 60);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.question-text-field {
+    min-height: 80px;
+    color: rgb(255, 255, 255);
+}
+
+.media-section {
+    display: none;
+}
+
+.media-section.visible {
+    display: flex;
+}
+
+.media-controls {
+    flex-direction: row;
+    align-items: center;
+}
+
+.media-button {
+    background-color: rgb(0, 150, 150);
+    color: rgb(255, 255, 255);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 10px;
+}
+
+.media-path-label {
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    -unity-font-style: italic;
+    font-size: 13px;
+}
+
+.options-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* AUMENTADO */
+}
+
+.add-option-button {
+    background-color: rgb(0, 150, 0);
+    color: rgb(255, 255, 255);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 13px;
+    width: 140px; /* ADICIONADO: Largura fixa */
+    flex-shrink: 0; /* ADICIONADO: Não encolher */
+}
+
+/* CORRIGIDO: Melhor layout das opções com mais espaçamento */
+.option-item {
+    flex-direction: column;
+    background-color: rgb(70, 70, 70);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 20px; /* AUMENTADO: Mais espaçamento entre opções */
+    border-width: 1px;
+    border-color: rgb(85, 85, 85);
+}
+
+.option-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* ADICIONADO: Distribuir espaço */
+    margin-top: 12px; /* AUMENTADO */
+}
+
+.option-text-field {
+    flex-grow: 1;
+    margin-bottom: 0;
+    background-color: rgb(85, 85, 85);
+    border-color: rgb(100, 100, 100);
+}
+
+.option-text-field Label {
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    font-size: 13px;
+    -unity-font-style: bold;
+}
+
+.correct-toggle {
+    margin-right: 15px;
+    margin-left: 0; /* RESETADO */
+}
+
+.correct-toggle Label {
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    font-size: 13px;
+    -unity-font-style: bold;
+}
+
+.correct-toggle .unity-toggle__checkmark {
+    background-color: rgb(100, 100, 100);
+    border-color: rgb(150, 150, 150);
+}
+
+.correct-toggle:checked .unity-toggle__checkmark {
+    background-color: rgb(0, 150, 0);
+    border-color: rgb(0, 200, 0);
+}
+
+.remove-option-button {
+    background-color: rgb(180, 60, 60);
+    color: rgb(255, 255, 255);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 12px;
+    width: 80px; /* ADICIONADO: Largura fixa menor */
+    flex-shrink: 0; /* ADICIONADO: Não encolher */
+}
+
+.remove-option-button:hover {
+    background-color: rgb(200, 80, 80);
+}
+
+.question-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top-width: 1px;
+    border-top-color: rgb(80, 80, 80);
+}
+
+.remove-question-button {
+    background-color: rgb(200, 50, 50);
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 13px;
+    width: 160px; /* ADICIONADO: Largura fixa */
+    flex-shrink: 0; /* ADICIONADO: Não encolher */
+}
+
+/* MELHORADO: Cores dos labels de input em geral */
+.input-field Label {
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    min-width: 140px;
+    font-size: 13px;
+    -unity-font-style: normal;
+}
+
+.input-field TextInput {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+.input-field FloatInput {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+/* CORRIGIDO: Dropdown field */
+.input-field .unity-base-popup-field__input {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+    border-color: rgb(100, 100, 100);
+}
+
+/* CORRIGIDO: Subsection title */
+.subsection-title {
+    font-size: 14px;
+    color: rgb(255, 255, 255); /* CORRIGIDO: Branco puro */
+    -unity-font-style: bold;
+    margin-bottom: 10px;
+}

@@ -1,3 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
-  <ui:TextField name="questionText" label="Pergunta"/>
-</ui:UXML>

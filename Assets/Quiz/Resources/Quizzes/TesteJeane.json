@@ -1,0 +1,22 @@
+{
+  "categoryName": "TesteJeane",
+  "questions": [
+    {
+      "questionInfo": "Qual o verbo certo de corrida?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": [
+        "Correr",
+        "Resposta2",
+        "Resposta3",
+        "Resposta4"
+      ],
+      "correctAnswerIndex": 0,
+      "mediaPath": "",
+      "questionTime": 60.0
+    }
+  ],
+  "defaultQuestionTime": 60.0
+}

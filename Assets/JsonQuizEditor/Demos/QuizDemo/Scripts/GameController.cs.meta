@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d13f2e18e852df4b581dc12899a928f2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Demos/QuizDemo/Scripts/GameController.cs
+  uploadId: 377829

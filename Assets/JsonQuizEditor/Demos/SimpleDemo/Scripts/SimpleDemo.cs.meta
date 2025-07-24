@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 81a75b1a20015ee908f22f0d262cb983
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Demos/SimpleDemo/Scripts/SimpleDemo.cs
+  uploadId: 377829

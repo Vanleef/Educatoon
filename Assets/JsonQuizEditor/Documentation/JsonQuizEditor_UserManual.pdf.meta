@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c780aed348e70f7a69c47db47ec3a21f
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Documentation/JsonQuizEditor_UserManual.pdf
+  uploadId: 377829

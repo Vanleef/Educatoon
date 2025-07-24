@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 515537aad2c71729c98974cc80efe57f
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/StreamingAssets/Demo/Images/PlanetEarth.png
+  uploadId: 377829

@@ -76,10 +76,3 @@ public class MenuFasesUI : MonoBehaviour
         File.WriteAllText(fasesJsonPath, json);
     }
 }
-
-[System.Serializable]
-public class Fase
-{
-    public string nome;
-    public List<Pergunta> perguntas = new List<Pergunta>();
-}

@@ -1,0 +1,156 @@
+{
+  "categoryName": "Mix",
+  "defaultQuestionTime": 30.0,
+  "questions": [
+    {
+      "questionInfo": "Which is the largest living bird on Earth?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Emu", "Ostrich", "Albatross", "Siberian Crane"],
+      "correctAnswerIndex": 1,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "For how many years have the dinosaurs been extinct?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": [
+        "About 25 million years",
+        "About 65 milion years",
+        "About 100 million years",
+        "About 135 million years"
+      ],
+      "correctAnswerIndex": 1,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 1,
+      "imagePath": "ImportedMedia/elephant",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Monkey", "Shark", "Porcupine", "Elephant"],
+      "correctAnswerIndex": 3,
+      "questionTime": 60.0
+    },
+    {
+      "questionInfo": "Which amongst the following is the largest mammal?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Elephant", "Whale", "Dinosaur", "Rhinoceros"],
+      "correctAnswerIndex": 1,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which part becomes modified as the tusk of elephant?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Canine", "Premolar", "Second Incisor", "Molar"],
+      "correctAnswerIndex": 2,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which of the following are warm-blooded animals?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Whales", "Whale sharks", "Alytes", "Draco"],
+      "correctAnswerIndex": 0,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 1,
+      "imagePath": "ImportedMedia/rabbit",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Rabbit", "Spider", "Polar Bear", "Cheeta"],
+      "correctAnswerIndex": 0,
+      "questionTime": 60.0
+    },
+    {
+      "questionInfo": "Which phenomenon do bats or dolphins use to find prey, predators or obstacles?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": [
+        "Refraction of sound",
+        "Formation of beats",
+        "Scattering",
+        "Echo location"
+      ],
+      "correctAnswerIndex": 3,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which of the following is the smallest bird?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Pigeon", "Parrot", "Humming bird", "House sparrow"],
+      "correctAnswerIndex": 2,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which one among the following lays eggs and does not produce young ones directly?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Echidna", "Kangaroo", "Porcupine", "Whale"],
+      "correctAnswerIndex": 0,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 1,
+      "imagePath": "ImportedMedia/tiger",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Lion", "Panda", "Tiger", "Whale"],
+      "correctAnswerIndex": 2,
+      "questionTime": 60.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 3,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "ImportedMedia/catvideo",
+      "options": ["Dog", "Cat", "Monkey", "Whale"],
+      "correctAnswerIndex": 1,
+      "questionTime": 60.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 2,
+      "imagePath": "",
+      "audioPath": "ImportedMedia/pigAudio",
+      "videoPath": "",
+      "options": ["Dog", "Elephant", "Pig", "Snake"],
+      "correctAnswerIndex": 2,
+      "questionTime": 60.0
+    },
+    {
+      "questionInfo": "Guess the animal!",
+      "questionType": 2,
+      "imagePath": "",
+      "audioPath": "ImportedMedia/wolfAudio",
+      "videoPath": "",
+      "options": ["Kangaroo", "Wolf", "Dolphine", "Frog"],
+      "correctAnswerIndex": 1,
+      "questionTime": 60.0
+    }
+  ]
+}

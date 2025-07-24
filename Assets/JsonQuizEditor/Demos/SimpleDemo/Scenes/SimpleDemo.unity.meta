@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b3831fb6516bc5126b0fcde574fac85b
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167056
+  packageName: Json Quiz Editor
+  packageVersion: 1.0
+  assetPath: Assets/JsonQuizEditor/Demos/SimpleDemo/Scenes/SimpleDemo.unity
+  uploadId: 377829

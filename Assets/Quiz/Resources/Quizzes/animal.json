@@ -1,0 +1,56 @@
+{
+  "categoryName": "Animal",
+  "defaultQuestionTime": 25.0,
+  "questions": [
+    {
+      "questionInfo": "Which animal eats Deer?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Lion", "Elephant", "Goat", "Monkey"],
+      "correctAnswerIndex": 0,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which animal can climb trees?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Zebra", "Bear", "Hyna", "Monkey"],
+      "correctAnswerIndex": 3,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Which of the following animal is Herbivorous?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Crocodile", "Moose", "Bear", "Panther"],
+      "correctAnswerIndex": 1,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Who can walk on 2 legs?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Dog", "Cat", "Human", "Turtle"],
+      "correctAnswerIndex": 2,
+      "questionTime": 30.0
+    },
+    {
+      "questionInfo": "Slowest animal on the earth?",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": ["Cheeta", "Sloth", "Leapord", "Tortois"],
+      "correctAnswerIndex": 1,
+      "questionTime": 30.0
+    }
+  ]
+}

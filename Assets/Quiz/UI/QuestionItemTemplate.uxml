@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="QuestionItem" class="question-item-container">
+        <ui:VisualElement name="QuestionContent" class="question-content">
+            <ui:Label name="QuestionPreview" text="Pergunta..." class="question-preview" />
+            <ui:Label name="QuestionType" text="Texto" class="question-type-badge" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

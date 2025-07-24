@@ -1,0 +1,20 @@
+{
+  "categoryName": "Nova Categoria",
+  "questions": [
+    {
+      "questionInfo": "Nova Pergunta",
+      "questionType": 0,
+      "imagePath": "",
+      "audioPath": "",
+      "videoPath": "",
+      "options": [
+        "Opção 1",
+        "Opção 2"
+      ],
+      "correctAnswerIndex": 0,
+      "mediaPath": "",
+      "questionTime": 30.0
+    }
+  ],
+  "defaultQuestionTime": 30.0
+}

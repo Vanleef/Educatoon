@@ -56,24 +56,28 @@ public class QuestionEditorUI : MonoBehaviour
         q.questionInfo = statementInput.text;
         q.questionType = (QuestionType)typeDropdown.value;
         q.options = new List<string>();
-        q.correctAns = "";
 
+        // Em vez de usar uma string para a resposta correta, usamos o índice correto
+        q.correctAnswerIndex = 0; // valor padrão
+
+        int idx = 0;
         foreach (var ans in answerUIs)
         {
             q.options.Add(ans.GetText());
             if (ans.IsCorrect())
-                q.correctAns = ans.GetText();
+            {
+                q.correctAnswerIndex = idx;
+            }
+            idx++;
         }
 
-        // Carregue mídia se necessário
+        // Carregue a mídia, se necessário.
         // Exemplo:
-        // if (q.questionType == QuestionType.IMAGE)
+        // if (q.questionType == QuestionType.Image)
         //     q.questionImage = Resources.Load<Sprite>(mediaPath);
-
-        // if (q.questionType == QuestionType.AUDIO)
+        // if (q.questionType == QuestionType.Audio)
         //     q.audioClip = Resources.Load<AudioClip>(mediaPath);
-
-        // if (q.questionType == QuestionType.VIDEO)
+        // if (q.questionType == QuestionType.Video)
         //     q.videoClip = Resources.Load<VideoClip>(mediaPath);
 
         return q;
